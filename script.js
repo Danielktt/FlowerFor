@@ -155,78 +155,123 @@ async function circle(originX, originY, circleRadius) {
     ctx.strokeStyle = "#000"; // Color del borde
     ctx.lineWidth = 2; // Grosor del borde
 
-    // A
-    dot(315,380);
-    await sleep(ms);
-    dot(317,372);
-    await sleep(ms);
-    dot(319,364);
-    await sleep(ms);
-    dot(321,356);
-    await sleep(ms);
-    dot(323,348);
-    await sleep(ms);
-    dot(327,340);
-    await sleep(ms);
+// ===========================
+//      M
+// ===========================
+dot(300,340);
+await sleep(ms);
+dot(300,348);
+await sleep(ms);
+dot(300,356);
+await sleep(ms);
+dot(300,364);
+await sleep(ms);
+dot(300,372);
+await sleep(ms);
+dot(300,380);
+await sleep(ms);
 
-    dot(327,372);
-    await sleep(ms);
+// pico central
+dot(308,348);
+await sleep(ms);
+dot(314,356);
+await sleep(ms);
+dot(320,348);
+await sleep(ms);
 
-    dot(331,348);
-    await sleep(ms);
-    dot(334,356);
-    await sleep(ms);
-    dot(336,364);
-    await sleep(ms);
-    dot(338,372);
-    await sleep(ms);
-    dot(340,380);
-    await sleep(ms);
+// columna derecha
+dot(328,340);
+await sleep(ms);
+dot(328,348);
+await sleep(ms);
+dot(328,356);
+await sleep(ms);
+dot(328,364);
+await sleep(ms);
+dot(328,372);
+await sleep(ms);
+dot(328,380);
+await sleep(ms);
 
-    // L
-    dot(355,340);
-    await sleep(ms);
-    dot(355,348);
-    await sleep(ms);
-    dot(355,356);
-    await sleep(ms);
-    dot(355,364);
-    await sleep(ms);
-    dot(355,372);
-    await sleep(ms);
-    dot(355,380);
-    await sleep(ms);
+// ===========================
+//          A
+// ===========================
+dot(345,380);
+await sleep(ms);
+dot(347,372);
+await sleep(ms);
+dot(349,364);
+await sleep(ms);
+dot(351,356);
+await sleep(ms);
+dot(353,348);
+await sleep(ms);
+dot(357,340);
+await sleep(ms);
 
-    dot(365,380);
-    await sleep(ms);
-    dot(375,380);
-    await sleep(ms);
+dot(357,372);
+await sleep(ms);
 
-    // Y
-    dot(380,340);
-    await sleep(ms);
-    dot(383,348);
-    await sleep(ms);
-    dot(386,356);
-    await sleep(ms);
-    dot(389,364);
-    await sleep(ms);
+dot(361,348);
+await sleep(ms);
+dot(364,356);
+await sleep(ms);
+dot(366,364);
+await sleep(ms);
+dot(368,372);
+await sleep(ms);
+dot(370,380);
+await sleep(ms);
+// ===========================
+//          J
+// ===========================
 
-    dot(393,372);
-    await sleep(ms);
-    dot(393,380);
-    await sleep(ms);
+// punto superior
+dot(395,332);
+await sleep(ms);
 
-    dot(396,364);
-    await sleep(ms);
-    dot(399,356);
-    await sleep(ms);
-    dot(402,348);
-    await sleep(ms);
-    dot(405,340);
-    await sleep(ms);
+// tronco recto
+dot(395,340);
+await sleep(ms);
+dot(395,348);
+await sleep(ms);
+dot(395,356);
+await sleep(ms);
+dot(395,364);
+await sleep(ms);
+dot(395,372);
+await sleep(ms);
 
-    
+// curva hacia la izquierda
+dot(391,380);
+await sleep(ms);
+dot(386,380);
+await sleep(ms);
+dot(382,376);
+await sleep(ms);
+dot(382,370);
+await sleep(ms);
+
+// ===========================
+
+// ===========================
+//          O (versión PRO)
+// ===========================
+
+// centro (cx, cy)
+const cx = 430, cy = 360;
+const r = 18; // radio del círculo de puntos
+
+// 12 puntos alrededor (cada 30°)
+for (let angle = 0; angle < 360; angle += 30) {
+    const rad = angle * Math.PI / 180;
+    const x = cx + Math.cos(rad) * r;
+    const y = cy + Math.sin(rad) * r;
+    dot(x, y);
+    await sleep(ms);
+}
+
+
 
     function dot(x, y) {
         ctx.beginPath();
